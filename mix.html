@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html> 
+<head>
+<title>ABOUT</title>
+
+<style>
+body { margin-left: 10px; background-color: rgb(160, 157, 157);} 
+
+header { 
+    text-align: center;
+    font-size: x-large;
+    background-color: darkgray;    
+}
+
+h1 { 
+    color: ivory;
+    background-color: rgb(73, 73, 73);
+    text-align: center;    
+}
+
+p{ 
+    font-size: 25px; 
+    margin-left: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;    
+}
+
+nav { 
+    background-color: rgb(107, 47, 47);
+    padding: 10px;
+}
+
+nav a { 
+    font-size: 20px; 
+    color: white;
+    padding-inline: 20px;
+    text-decoration: none;
+}
+
+nav a:hover { 
+    background-color: black;
+    padding:10.5px 20px;
+}
+
+footer {
+    text-align: center;
+}
+
+/* ---------------------- */
+/* Q6 FLEXBOX */
+/* ---------------------- */
+.flex-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+.flex-box {
+    width: 100px;
+    height: 100px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.b1 { background: red; }
+.b2 { background: green; }
+.b3 { background: blue; }
+
+/* ---------------------- */
+/* Q7 GRID + Q8 MEDIA QUERY */
+/* ---------------------- */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 20px;
+}
+.grid-box {
+    background: purple;
+    height: 120px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr;  /* Q8: one column on small screen */
+    }
+}
+</style>
+
+</head>
+    
+<body>
+
+<header>PORTFOLIO</header>
+
+<nav>
+<a href="#name">NAME</a>
+<a href="#branch">BRANCH</a>
+<a href="#roll no">ROLL NO</a>
+<a href="#address">ADDRESS</a>
+<a href="#photo">PHOTO</a>
+<a href="#contact">CONTACT</a>
+</nav>
+
+<section id="name">
+    <h1>NAME:-</h1>
+    <p>Ansari Rayyan Ali</p>
+</section>
+<hr>
+
+<section id="branch">
+    <h1>BRANCH:-</h1>
+    <p>B.Tech in Electronics and Computer Science</p>
+</section>
+<hr>
+
+<section id="roll no">
+    <h1>ROLL NO:-</h1>
+    <p>25EC23</p>
+</section>
+<hr>
+
+<section>
+    <h1>ABOUT ME!</h1>
+    <article>
+        <h2>Made a working website</h2>
+        <p>I made working website using html, css, javasript and an API provider.
+            the website name is abmservices.netlify.app
+        </p>
+    </article>
+    <br>
+    <article>
+        <h2>HOBBIE</h2>
+        <p>My hobbie is working out and sports!</p>
+    </article>
+</section>
+
+<section id="address">
+    <h1>ADDRESS:-</h1>
+    <p>Byculla, Mumbai-400011</p>
+</section>
+<hr>
+
+<!-- ============================================= -->
+<!-- INSERTED Q6, Q7, Q8 OUTPUTS (BEFORE PHOTO) -->
+<!-- ============================================= -->
+
+<h1>Q6: FLEXBOX (3 BOXES)</h1>
+<div class="flex-container">
+    <div class="flex-box b1">Box 1</div>
+    <div class="flex-box b2">Box 2</div>
+    <div class="flex-box b3">Box 3</div>
+</div>
+
+<h1>Q7+Q8: GRID (RESPONSIVE)</h1>
+<div class="grid-container">
+    <div class="grid-box">1</div>
+    <div class="grid-box">2</div>
+    <div class="grid-box">3</div>
+    <div class="grid-box">4</div>
+</div>
+
+<!-- ============================================= -->
+
+<section id="photo">
+    <h1>PHOTO:-</h1>
+    <img src="https://raw.githubusercontent.com/rayyan-ali08/rayyan.ali08/c44310ca5ebe486752c580023a8fd0a10a5177e1/PIC.jpg" 
+    alt="PHOTO" width="250px" height="350px" 
+    style="border: 8px solid black;">
+</section>
+
+<section id="contact">
+    <h1>CONTACT:-</h1> 
+<footer>
+<p>Phone: <a href="tel:+918850037887">8850037887</a>
+<br> Email: <a href="mailto:rayyan120.ra@gmail.com">rayyan120.ra@gmail.com</a> 
+<br>
+Social Media: <a href="https://www.instagram.com/rayyan.ali08?igsh=ZHM1bnd0MTNsODdx">Instagram</a>
+<br>
+&copy; 2025 RAYYAN ALI. All rights reserved.
+</p>
+</footer>
+</section>
+
+<hr>
+
+</body>
+</html>
