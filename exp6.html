@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Simple To-Do List</title>
+<style>
+body {
+font-family: Arial;
+background: #f2f2f2;
+display: flex;
+justify-content: center;
+padding-top: 40px;
+}
+.container {
+background: white;
+padding: 20px;
+width: 300px;
+border-radius: 8px;
+box-shadow: 0 0 5px gray;
+}
+h3 { text-align: center; color: #333; }input {
+width: 100%;
+padding: 8px;
+margin-bottom: 10px;
+border: 1px solid #aaa;
+border-radius: 4px;
+}
+button {
+width: 100%;
+padding: 8px;
+margin-bottom: 10px;
+background: #4CAF50;
+color: white;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+ul { list-style: none; padding: 0; }
+li {
+background: #eee;
+margin-bottom: 6px;
+padding: 8px;
+border-radius: 4px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}li.completed { text-decoration: line-through; background: #d1ffd1; }
+.del-btn {
+background: red;
+color: white;
+border: none;
+padding: 2px 6px;
+border-radius: 4px;
+cursor: pointer;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h3>My To-Do List</h3>
+<input type="text" id="taskInput" placeholder="Enter new task">
+<button id="addBtn">Add Task</button>
+<ul id="taskList"></ul>
+</div>
+<script>
+const input = document.getElementById('taskInput');
+const addBtn = document.getElementById('addBtn');
+const taskList = document.getElementById('taskList');
+// Load tasks from localStorage
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+renderTasks();addBtn.addEventListener('click', addTask);
+input.addEventListener('keypress', function(e){
+if(e.key === 'Enter') addTask();
+});
+function addTask() {
+const val = input.value.trim();
+if(!val) return;
+tasks.push({ text: val, done: false });
+input.value = '';
+saveAndRender();
+}
+function renderTasks() {
+taskList.innerHTML = '';
+tasks.forEach((task, idx) => {
+const li = document.createElement('li');
+li.className = task.done ? 'completed' : '';
+li.innerHTML = `
+<span>${task.text}</span>
+<div>
+<button class="del-btn" data-index="${idx}">X</button>
+</div>
+`;
+// toggle complete on click text
+li.querySelector('span').addEventListener('click', ()=>{
+tasks[idx].done = !tasks[idx].done;
+saveAndRender();
+});// delete task
+li.querySelector('.del-btn').addEventListener('click', ()=>{
+tasks.splice(idx, 1);
+saveAndRender();
+});
+taskList.appendChild(li);
+});
+}
+function saveAndRender() {
+localStorage.setItem('tasks', JSON.stringify(tasks));
+renderTasks();
+}
+</script>
+</body>
+</html>
