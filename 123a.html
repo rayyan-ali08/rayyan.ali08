@@ -1,0 +1,273 @@
+//1--------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<style>
+body {margin:0;font-family:Arial;background:#a09d9d;}
+header, footer{background:#555;color:#fff;text-align:center;padding:15px;}
+nav{background:#6b2f2f;text-align:center;padding:10px;}
+nav a{color:white;text-decoration:none;font-size:18px;padding:10px 15px;}
+nav a:hover{background:#000;}
+section{padding:15px;background:#ddd;margin:10px 0;}
+h1,h2{margin:5px 0;}
+img{border:4px solid black;width:250px;height:350px;}
+.container{max-width:900px;margin:auto;}
+</style>
+</head>
+<body>
+<header>PORTFOLIO</header>
+<nav>
+  <a href="#name">NAME</a>
+  <a href="#roll">ROLL NO</a>
+  <a href="#photo">PHOTO</a>
+  <a href="#contact">CONTACT</a>
+</nav>
+
+<div class="container">
+  <section id="name">
+    <h1>NAME</h1>
+    <p>Ansari Rayyan Ali</p>
+  </section>
+
+  <section id="roll">
+    <h1>ROLL NO</h1>
+    <p>25EC23</p>
+  </section>
+
+  <section>
+    <h1>ABOUT ME</h1>
+    <article>
+      <h2>Website Project</h2>
+      <p>Created a working website using HTML, CSS, JS, and an API: <a href="https://abmservices.netlify.app" target="_blank">abmservices.netlify.app</a></p>
+    </article>
+  </section>
+
+  <section id="photo">
+    <h1>PHOTO</h1>
+    <img src="https://media.istockphoto.com/id/2132177453/vector/profile-picture-portrait-symbol-user-profile-icon-avatar-or-person-icon-default-portrait.jpg?s=170667a&w=0&k=20&c=pAVBBqyyKKFnoh84e-VQb8mzLnKTZo7Hm3_cduOajKI=" alt="Rayyan Ali">
+  </section>
+
+  <section id="contact">
+    <h1>CONTACT</h1>
+    <p>Email: <a href="mailto:rayyan120.ra@gmail.com">rayyan120.ra@gmail.com</a></p>
+  </section>
+</div>
+
+<footer>&copy; 2025 Rayyan Ali</footer>
+</body>
+</html>
+
+
+//2-------------------------------------------------------
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Log Page</title>
+
+<style>
+  body{
+    font-family:Arial;
+    margin:20px;
+    background:#eef3ff;
+  }
+
+  h1{
+    text-align:center;
+    color:#3662ea;
+  }
+
+  /* Flexbox */
+  .top{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  input{
+    padding:6px;
+    border:1px solid #99b3ff;
+    border-radius:4px;
+  }
+
+  button{
+    background:#3662ea;
+    color:white;
+    border:none;
+    padding:8px 14px;
+    border-radius:5px;
+    cursor:pointer;
+  }
+  button:hover{
+    background:#2f54c7;
+  }
+
+  /* Grid */
+  .grid{
+    display:grid;
+    gap:15px;
+    margin-top:20px;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  }
+
+  .card{
+    background:white;
+    padding:12px;
+    border-radius:6px;
+    border:1px solid #d2dbff;
+    border-left:6px solid #3662ea;
+  }
+
+  .title{font-weight:bold;}
+  .date{color:gray;font-size:12px;margin-bottom:6px;}
+
+  @media(max-width:400px){
+    input{width:100%;}
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Log Page</h1>
+
+<div class="top">
+  <input placeholder="Search...">
+  <button id="addBtn">Add Log</button>
+</div>
+
+<div class="grid" id="grid">
+
+  <div class="card">
+    <div class="title">Server Update</div>
+    <div class="date">Dec 2, 2025</div>
+    <p>Backend patch deployed.</p>
+  </div>
+
+  <div class="card">
+    <div class="title">Bug Fix</div>
+    <div class="date">Dec 1, 2025</div>
+    <p>Login issue solved.</p>
+  </div>
+
+</div>
+
+<script>
+  const grid = document.getElementById('grid');
+  document.getElementById('addBtn').onclick = () => {
+    const c = document.createElement('div');
+    c.className = "card";
+    c.innerHTML = `
+      <div class="title">New Log</div>
+      <div class="date">${new Date().toLocaleString()}</div>
+      <p>New entry added.</p>`;
+    grid.prepend(c);
+  };
+</script>
+
+</body>
+</html>
+
+
+//3------------------------------------------------
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+</head>
+<body style="background-color:white;">
+
+<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#news">News</a>
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+  </div> 
+</div>
+
+<h3>Dropdown Menu inside a Navigation Bar</h3>
+<p>Hover over the "Dropdown" link to see the dropdown menu.</p>
+
+</body>
+</html>
