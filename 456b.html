@@ -1,0 +1,315 @@
+//4-----------------------------------
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      padding-top: 40px;
+    }
+    .box {
+      background: white;
+      padding: 20px;
+      width: 280px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px gray;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover { background: #45a049; }
+    #msg { margin-top: 10px; font-weight: bold; }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+  <h3>Register</h3>
+
+  <form id="regForm">
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="pass" placeholder="Password" required>
+    <input type="password" id="cpass" placeholder="Confirm Password" required>
+    <button type="submit">Submit</button>
+    <p id="msg"></p>
+  </form>
+</div>
+
+<script>
+  document.getElementById("regForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let name = nameField.value.trim();
+    let email = emailField.value.trim();
+    let pass = passField.value;
+    let cpass = cpassField.value;
+    let msg = document.getElementById("msg");
+
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if(!emailPattern.test(email)){
+      msg.style.color = "red";
+      msg.innerText = "Invalid email!";
+      return;
+    }
+
+    if(pass.length < 6){
+      msg.style.color = "red";
+      msg.innerText = "Password must be 6+ chars.";
+      return;
+    }
+
+    if(pass !== cpass){
+      msg.style.color = "red";
+      msg.innerText = "Passwords do not match!";
+      return;
+    }
+
+    msg.style.color = "green";
+    msg.innerText = "Registration Successful!";
+  });
+
+  // Shortcuts to inputs
+  const nameField = document.getElementById("name");
+  const emailField = document.getElementById("email");
+  const passField = document.getElementById("pass");
+  const cpassField = document.getElementById("cpass");
+</script>
+
+</body>
+</html>
+
+
+//5---------------------------
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Image Gallery</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f2f2f2;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h2 { color: #333; }
+
+    /* Large image */
+    #main-img {
+      width: 400px;
+      height: 300px;
+      object-fit: cover;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    /* Thumbnails */
+    .thumbs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .thumbs img {
+      width: 100px;
+      height: 70px;
+      object-fit: cover;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .thumbs img:hover {
+      transform: scale(1.1);
+      border-color: #4CAF50;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Image Gallery</h2>
+
+  <img id="main-img" src="https://picsum.photos/id/1015/400/300" alt="Large Image">
+
+  <div class="thumbs">
+    <img src="https://picsum.photos/id/1015/100/70" data-large="https://picsum.photos/id/1015/400/300" alt="">
+    <img src="https://picsum.photos/id/1016/100/70" data-large="https://picsum.photos/id/1016/400/300" alt="">
+    <img src="https://picsum.photos/id/1025/100/70" data-large="https://picsum.photos/id/1025/400/300" alt="">
+    <img src="https://picsum.photos/id/1035/100/70" data-large="https://picsum.photos/id/1035/400/300" alt="">
+  </div>
+
+  <script>
+    const mainImg = document.getElementById("main-img");
+    const thumbs = document.querySelectorAll(".thumbs img");
+
+    thumbs.forEach(thumb => {
+      thumb.addEventListener("click", () => {
+        mainImg.src = thumb.dataset.large;
+      });
+    });
+  </script>
+
+</body>
+</html>
+
+
+//6-------------------------------------
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple To-Do List</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      padding-top: 40px;
+    }
+
+    .container {
+      background: white;
+      padding: 20px;
+      width: 300px;
+      border-radius: 8px;
+      box-shadow: 0 0 5px gray;
+    }
+
+    h3 { text-align: center; color: #333; }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+    }
+
+    button {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    ul { list-style: none; padding: 0; }
+
+    li {
+      background: #eee;
+      margin-bottom: 6px;
+      padding: 8px;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    li.completed { text-decoration: line-through; background: #d1ffd1; }
+
+    .del-btn {
+      background: red;
+      color: white;
+      border: none;
+      padding: 2px 6px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h3>My To-Do List</h3>
+  <input type="text" id="taskInput" placeholder="Enter new task">
+  <button id="addBtn">Add Task</button>
+  <ul id="taskList"></ul>
+</div>
+
+<script>
+  const input = document.getElementById('taskInput');
+  const addBtn = document.getElementById('addBtn');
+  const taskList = document.getElementById('taskList');
+
+  // Load tasks from localStorage
+  let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  renderTasks();
+
+  addBtn.addEventListener('click', addTask);
+  input.addEventListener('keypress', function(e){
+    if(e.key === 'Enter') addTask();
+  });
+
+  function addTask() {
+    const val = input.value.trim();
+    if(!val) return;
+    tasks.push({ text: val, done: false });
+    input.value = '';
+    saveAndRender();
+  }
+
+  function renderTasks() {
+    taskList.innerHTML = '';
+    tasks.forEach((task, idx) => {
+      const li = document.createElement('li');
+      li.className = task.done ? 'completed' : '';
+      li.innerHTML = `
+        <span>${task.text}</span>
+        <div>
+          <button class="del-btn" data-index="${idx}">X</button>
+        </div>
+      `;
+      // toggle complete on click text
+      li.querySelector('span').addEventListener('click', ()=>{
+        tasks[idx].done = !tasks[idx].done;
+        saveAndRender();
+      });
+      // delete task
+      li.querySelector('.del-btn').addEventListener('click', ()=>{
+        tasks.splice(idx, 1);
+        saveAndRender();
+      });
+      taskList.appendChild(li);
+    });
+  }
+
+  function saveAndRender() {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+    renderTasks();
+  }
+</script>
+
+</body>
+</html>
+
+
