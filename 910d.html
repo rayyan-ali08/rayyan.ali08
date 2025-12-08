@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Centered Button</title>
+ <style>
+ body {
+ margin: 0;
+ height: 100vh;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background: #f0f0f0;
+ font-family: Arial;
+ }
+ #myBtn {
+ padding: 12px 25px;
+ background: #3498db;
+ color: white;
+ border: none;
+ border-radius: 8px;
+ cursor: pointer;
+ font-size: 18px;transition: background 0.3s ease, transform 0.3s ease;
+ }
+ #myBtn:hover {
+ background: #1abc9c;
+ transform: scale(1.1);
+ }
+ .clicked {
+ background: #e74c3c !important;
+ transform: scale(1.2);
+ }
+ </style>
+</head>
+<body>
+<button id="myBtn">Click Me</button>
+<script>
+ const btn = document.getElementById("myBtn");
+ btn.addEventListener("click", () => {
+ btn.classList.add("clicked");
+ setTimeout(() => {
+ btn.classList.remove("clicked");
+ }, 200);
+ });
+</script>
+</body>
+</html>
+
+
+
+//10---------
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<style>
+body {
+font-family: Arial;
+background: #f4f4f4;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+}
+.box {
+background: #fff;
+padding: 20px;
+border-radius: 8px;
+width: 280px;
+text-align: center;
+box-shadow: 0 0 10px rgba(0,0,0,0.1);}
+input, button {
+width: 90%;
+padding: 10px;
+margin: 8px 0;
+border-radius: 5px;
+border: 1px solid #ccc;
+}
+button {
+background: #4caf50;
+color: #fff;
+border: none;
+cursor: pointer;
+}
+button:hover { background: #45a049; }
+#message { margin-top: 10px; font-weight: bold; }
+</style>
+</head>
+<body>
+<div class="box">
+<h2>Login</h2>
+<input id="username" type="text" placeholder="Username">
+<input id="password" type="password" placeholder="Password">
+<button id="loginBtn">Login</button>
+<div id="message"></div>
+</div><script>
+const U="student", P="12345";
+loginBtn.onclick=()=>{
+let u=username.value, p=password.value;
+if(!u || !p) msg("Please enter both.","red");
+else if(u===U && p===P) msg("Login successful.","green");
+else msg("Invalid username or password.","red");
+}
+function msg(t,c){ message.textContent=t; message.style.color=c; }
+</script>
+</body>
+</html>
