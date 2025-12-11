@@ -1,37 +1,44 @@
-//p9
+//p10
 
-//write a program using stucture to store and display students record. 
 #include <stdio.h>
-struct student
-{
-char firstName[50];
-int roll;
-float marks;
-}s[10];
+#include <stdlib.h>
 void main()
 {
-int i, size;
-printf("\nEnter number of students between 1 to 10:");
-scanf("%d",&size);
-printf("\nEnter Information of student:");
-//string info
-for(i=0;i<size;i++)
+FILE *fptr;
+char name[50];
+int roll;
+float marks;
+printf("\nEnter student name:");
+scanf("%s",name);
+printf("\nEnter student roll no:");
+scanf("%d",&roll);
+printf("\nEnter student marks:");
+scanf("%f",&marks);
+//writing data to file using fprintf()
+fptr=fopen("student_data.txt","w"); //open in write mode
+if(fptr==NULL)
 {
-printf("\nEnter Roll no:");
-scanf("%d",&s[i].roll);
-printf("\nEnter First Name:");
-scanf("%s",s[i].firstName);
-printf("\nEnter Marks:");
-scanf("%f",&s[i].marks);
-}
-//Display Info
-printf("\nDisplay Information:");
-for(i=0;i<size;i++)
+printf("\nEnter in opening file");
+exit(1);
+}fprintf(fptr,"Name=%s \nRoll_No=%d \nMarks=%.2f",name,roll,marks);
+printf("\nData written sucessfully!!!");
+fclose(fptr); //close file
+//reading data program from a file
+fptr = fopen("student_data.txt","r");
+if (fptr==NULL)
 {
-printf("\nRoll No=%d",s[i].roll);
-printf("\nFirst Name=%s",s[i].firstName);
-printf("\nMarks=%.2f",s[i].marks);
+printf("Error opeaning file for reading !!!");
+exit(1);
 }
+printf("\n Reading Data from our Text file \n");
+char label1[20],label2[20],label3[20];
+fscanf(fptr,"%s\n",label1);
+fscanf(fptr,"%s\n",label2);
+fscanf(fptr,"%s\n",label3);
+printf("%s\n",label1);
+printf("%s\n",label2);
+printf("%s\n",label3);
+fclose(fptr); //close file
 }
 
 //p8
@@ -208,3 +215,6 @@ else
  printf("The strings are equal");
  }
 }
+
+//p4
+
