@@ -217,4 +217,103 @@ else
 }
 
 //p4
+include <stdio.h>
+int factorial(int);
+void main()
+{
+	int num,result;
+	
+printf("Enter number:");
+scanf("%d",&num);
+
+if(num<0)
+{
+	printf("\nPlease enter positive number!");
+}
+
+else
+{
+	result = factorial(num);
+	printf("\nfactorial of %d is %d",num,result);
+}
+}
+//factorial function
+
+int factorial (int n)
+{
+	if(n==0 || n==1)
+	{
+		return 1;
+	}
+	else
+	{
+		return n*factorial(n-1);
+	}
+}
+
+
+
+
+PRACTICLE 2
+PART 1-
+
+#include <stdio.h>
+void main()
+  // check wheater the given number is positve , negative or zero
+{
+int a;
+printf("please enter the number:");
+scanf("%d",&a);
+
+if(a>0)
+printf("Your number %d is Positive",a);
+
+else if(a<0)
+printf("Your number %d is Negative",a);
+
+else
+printf("Your number %d is zero",a );
+
+}
+
+
+PART 2-
+
+#include <stdio.h>
+#include <stdlib.h>
+void main()
+// perform switch case operations
+{
+	int choice;
+	while(1)
+	{
+		printf("\n ***MENU***");
+		printf("\n 1) Display First Name");
+		printf("\n 2) Display Full name");
+		printf("\n 3) Display Roll No");
+		printf("\n EXIT");
+		printf("\n Please Enter your choice:");
+		scanf("%d",&choice);
+		
+		
+	switch(choice)
+		{
+			case 1:
+					printf("My  first name is Rayyan Ali");
+					break;
+			case 2:
+					printf("\nMy Full name is Ansari Rayyan Ali");
+					break;
+			case 3:		
+					printf("\n My roll no is 23");
+					break;
+			case 4:
+					exit(0);
+					
+					default:
+					printf("\n Please select correct choice!!!");
+				}
+			}
+		}
+		
 
